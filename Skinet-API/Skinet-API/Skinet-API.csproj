@@ -19,7 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Skinet-DomainModels\Skinet-DomainModels.csproj" />
     <ProjectReference Include="..\Skinet-Repository\Skinet-Repository.csproj" />
-    <ProjectReference Include="..\Skinet-ViewModels\Skinet-ViewModels.csproj" />
+    <ProjectReference Include="..\Skinet-ViewModels\Skinet-DTO.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Skinet_DomainModels;
 using Microsoft.EntityFrameworkCore;
+using Skinet_Repository;
 
 namespace Skinet_API.Controllers
 {
@@ -13,23 +14,22 @@ namespace Skinet_API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly DataContext db;
+        private readonly IProductRepository productRepository;
 
-        public ProductsController(DataContext db)
+        public ProductsController(IProductRepository productRepository)
         {
-            this.db = db;
-        
+            this.productRepository = productRepository;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            return Ok(await db.Products.ToListAsync());
+            return Ok(await productRepository.GetProductsAsync());
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return Ok(await db.Products.Where(x => x.Id == id).FirstOrDefaultAsync());
+            return Ok(await productRepository.GetProductsByIDAsync(id));
         }
     }
 }

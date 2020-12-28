@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet-API", "Skinet-API\Sk
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet-DomainModels", "Skinet-DomainModels\Skinet-DomainModels.csproj", "{9FA96A5E-5CE3-4B92-BDAE-C16C9E9B2203}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skinet-Repository", "Skinet-Repository\Skinet-Repository.csproj", "{E3BD3FAD-2069-4B18-9254-D5234EA8D33F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet-Repository", "Skinet-Repository\Skinet-Repository.csproj", "{E3BD3FAD-2069-4B18-9254-D5234EA8D33F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skinet-ViewModels", "Skinet-ViewModels\Skinet-ViewModels.csproj", "{ED17772B-1B1E-427A-8930-0B96664F5A33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet-DTO", "Skinet-ViewModels\Skinet-DTO.csproj", "{ED17772B-1B1E-427A-8930-0B96664F5A33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

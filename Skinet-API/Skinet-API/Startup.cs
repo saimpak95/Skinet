@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Skinet_Repository;
 
 namespace Skinet_API
 {
@@ -35,6 +36,7 @@ namespace Skinet_API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Skinet_API", Version = "v1" });
             });
             services.AddDbContext<DataContext>(option => option.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
