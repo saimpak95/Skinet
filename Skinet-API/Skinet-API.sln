@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet-DomainModels", "Skin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet-Repository", "Skinet-Repository\Skinet-Repository.csproj", "{E3BD3FAD-2069-4B18-9254-D5234EA8D33F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet-DTO", "Skinet-ViewModels\Skinet-DTO.csproj", "{ED17772B-1B1E-427A-8930-0B96664F5A33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet-DataTransferObject", "Skinet-DTO\Skinet-DataTransferObject.csproj", "{4AED2EA0-387F-4DD6-BA9D-FB7600F982B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{E3BD3FAD-2069-4B18-9254-D5234EA8D33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3BD3FAD-2069-4B18-9254-D5234EA8D33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3BD3FAD-2069-4B18-9254-D5234EA8D33F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED17772B-1B1E-427A-8930-0B96664F5A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED17772B-1B1E-427A-8930-0B96664F5A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED17772B-1B1E-427A-8930-0B96664F5A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED17772B-1B1E-427A-8930-0B96664F5A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AED2EA0-387F-4DD6-BA9D-FB7600F982B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AED2EA0-387F-4DD6-BA9D-FB7600F982B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AED2EA0-387F-4DD6-BA9D-FB7600F982B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AED2EA0-387F-4DD6-BA9D-FB7600F982B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

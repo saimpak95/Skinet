@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Skinet_DomainModels;
 using Microsoft.EntityFrameworkCore;
 using Skinet_Repository;
+using Skinet_Repository.Specifications;
+using Skinet_DTO;
+using AutoMapper;
 
 namespace Skinet_API.Controllers
 {
@@ -14,22 +17,29 @@ namespace Skinet_API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository productRepository;
 
-        public ProductsController(IProductRepository productRepository)
+        private readonly IGenericRepository<Product> ProductRepository;
+        private readonly IMapper mapper;
+
+        public ProductsController(IGenericRepository<Product> ProductRepository, IMapper mapper)
         {
-            this.productRepository = productRepository;
+            this.ProductRepository = ProductRepository;
+            this.mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts()
         {
-            return Ok(await productRepository.GetProductsAsync());
+            var spec = new ProductsWithTypesAndBrandSpecification();
+            var products = await ProductRepository.GetListWithSpecification(spec);
+            return Ok(mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDTO>>(products));
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductToReturnDTO>> GetProduct(int id)
         {
-            return Ok(await productRepository.GetProductsByIDAsync(id));
+            var spec = new ProductsWithTypesAndBrandSpecification(id);
+            var product = await ProductRepository.GetEntityWithSpecification(spec);
+            return mapper.Map<Product, ProductToReturnDTO>(product);
         }
     }
 }
