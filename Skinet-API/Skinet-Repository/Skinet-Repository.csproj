@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Skinet-DomainModels\Skinet-DomainModels.csproj" />
-    <ProjectReference Include="..\Skinet-ViewModels\Skinet-DTO.csproj" />
   </ItemGroup>
 
 </Project>
