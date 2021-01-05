@@ -9,6 +9,8 @@ namespace Skinet_Repository.Specification
     {
         Expression<Func<T,bool>> Criteria { get;  }                         //Where clause
         List<Expression<Func<T,object>>> Includes { get; }                 //Include ProductBrand and ProductTypes
+        Expression<Func<T,object>> OrderBy { get; }
+        Expression<Func<T, object>> OrderByDescending { get; }
     }
     public class BaseSpecification<T> : ISpecification<T>
     {
@@ -25,9 +27,21 @@ namespace Skinet_Repository.Specification
         public Expression<Func<T, bool>> Criteria { get; }
         public List<Expression<Func<T, object>>> Includes { get; } = new List<Expression<Func<T, object>>>();
 
+        public Expression<Func<T, object>> OrderBy { get; private set; }
+
+        public Expression<Func<T, object>> OrderByDescending { get; private set; }
+
         protected void AddIncludes(Expression<Func<T,object>> expression)
         {
             Includes.Add(expression);
+        }
+        protected void AddOrderBy(Expression<Func<T, object>> expression)
+        {
+            OrderBy = expression;
+        }
+        protected void AddOrderByDescending(Expression<Func<T, object>> expression)
+        {
+            OrderByDescending = expression;
         }
     }
 }
