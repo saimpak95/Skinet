@@ -9,13 +9,15 @@ namespace Skinet_Repository.Specifications
 {
    public class ProductsWithTypesAndBrandSpecification   :BaseSpecification<Product>
     {
-        public ProductsWithTypesAndBrandSpecification(string sort)
+        public ProductsWithTypesAndBrandSpecification(ProductSpecificationParams productParams)
+            :base(x=> (!productParams.BrandID.HasValue || x.ProductBrandID== productParams.BrandID) && (!productParams.TypeID.HasValue || x.ProductTypeID == productParams.TypeID))
         {
             AddIncludes(x => x.ProductBrand);
             AddIncludes(x => x.ProductType);
-            if (!string.IsNullOrEmpty(sort))
+            ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1), productParams.PageSize);
+            if (!string.IsNullOrEmpty(productParams.Sort))
             {
-                switch (sort)
+                switch (productParams.Sort)
                 {
                     case "priceAsc":
                         AddOrderBy(x => x.Price);

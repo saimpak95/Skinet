@@ -28,9 +28,9 @@ namespace Skinet_API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string sort)
+        public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts([FromQuery] ProductSpecificationParams param)
         {
-            var spec = new ProductsWithTypesAndBrandSpecification(sort);
+            var spec = new ProductsWithTypesAndBrandSpecification(param);
             var products = await ProductRepository.GetListWithSpecification(spec);
             return Ok(mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDTO>>(products));
         }

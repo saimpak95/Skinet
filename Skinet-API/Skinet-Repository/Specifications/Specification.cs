@@ -11,6 +11,9 @@ namespace Skinet_Repository.Specification
         List<Expression<Func<T,object>>> Includes { get; }                 //Include ProductBrand and ProductTypes
         Expression<Func<T,object>> OrderBy { get; }
         Expression<Func<T, object>> OrderByDescending { get; }
+        int Take { get; }
+        int Skip { get; }
+        bool IsPagingEnable { get; }
     }
     public class BaseSpecification<T> : ISpecification<T>
     {
@@ -31,6 +34,12 @@ namespace Skinet_Repository.Specification
 
         public Expression<Func<T, object>> OrderByDescending { get; private set; }
 
+        public int Take { get; private set; }
+
+    public int Skip { get; private set; }
+
+        public bool IsPagingEnable { get; private set; }
+
         protected void AddIncludes(Expression<Func<T,object>> expression)
         {
             Includes.Add(expression);
@@ -42,6 +51,12 @@ namespace Skinet_Repository.Specification
         protected void AddOrderByDescending(Expression<Func<T, object>> expression)
         {
             OrderByDescending = expression;
+        }
+        protected void ApplyPaging(int skip, int take)
+        {
+            Skip = skip;
+            Take = take;
+            IsPagingEnable = true;
         }
     }
 }

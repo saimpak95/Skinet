@@ -24,6 +24,10 @@ namespace Skinet_Repository.Specifications
             {
                 query = query.OrderByDescending(specification.OrderByDescending);
             }
+            if (specification.IsPagingEnable)
+            {
+                query = query.Skip(specification.Skip).Take(specification.Take);
+            }
             query = specification.Includes.Aggregate(query, (current, include) => current.Include(include));
             return query;
         }
